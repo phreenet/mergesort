@@ -49,6 +49,9 @@ public class TestSearch {
         int pivot = (min + max) / 2;
         temp = (new Comparable[size]);  // Java doesn't handle generic arrays well.
 
+        mergeSort(data, min, pivot); // sort left half of list
+        mergeSort(data, pivot + 1, max); // sort right half of list
+
 
         // Copy sorted data into workspace
         for(index = 0; index < size; index++)

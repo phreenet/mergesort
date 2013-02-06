@@ -14,7 +14,7 @@ public class MergeSort {
         private Comparable[] source, sorted;
         private int lowerIndex, upperIndex;
 
-        public SortTask(Comparable[] source, Comparable[] sorted, 
+        public SortTask(Comparable[] source, Comparable[] sorted,
                             int lowerIndex, int upperIndex) {
             this.source = source;
             this.sorted = sorted;
@@ -30,7 +30,7 @@ public class MergeSort {
             }
 
             int midIndex = (lowerIndex + upperIndex) >>> 1;
-            invokeAll( new SortTask(source, sorted, lowerIndex, midIndex), 
+            invokeAll( new SortTask(source, sorted, lowerIndex, midIndex),
                        new SortTask(source, sorted, midIndex + 1, upperIndex) );
             merge(source, sorted, lowerIndex, midIndex, upperIndex);
         }
@@ -41,7 +41,7 @@ public class MergeSort {
         if(source[midIndex].compareTo(source[midIndex+1]) <= 0)
             return;
 
-        System.arraycopy(source, lowerIndex, sorted, 
+        System.arraycopy(source, lowerIndex, sorted,
                             lowerIndex, midIndex - lowerIndex + 1);
 
         int i = lowerIndex;
@@ -57,7 +57,7 @@ public class MergeSort {
         System.arraycopy(sorted, i, source, k, j - k);
     }
 
-    private static void insertionSort(Comparable[] a, 
+    private static void insertionSort(Comparable[] a,
                                         int li, int ui) {
         for(int i = li + 1; i <= ui; i++) {
             int j = i;
